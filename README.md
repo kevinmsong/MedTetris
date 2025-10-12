@@ -2,7 +2,7 @@
 
 A fully-featured, medical-themed Tetris game with hospital aesthetics, clinical terminology, and engaging gameplay built with pure HTML5, CSS3, and JavaScript.
 
-[![Version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/yourusername/medical-tetris)
+[![Version](https://img.shields.io/badge/version-1.0-blue)](https://github.com/kevinmsong/MedTetris)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -20,7 +20,7 @@ A fully-featured, medical-themed Tetris game with hospital aesthetics, clinical 
 
 ---
 
-## 🎮 [Play Now!](https://yourusername.github.io/medical-tetris/)
+## 🎮 [Play Now!](https://kevinmsong.github.io/MedTetris/)
 
 ---
 
@@ -93,16 +93,16 @@ Tetris/
 ## 🚀 Quick Start
 
 ### Play Online
-Visit the [live demo](https://yourusername.github.io/medical-tetris/) to play instantly in your browser!
+Visit the [live demo](https://kevinmsong.github.io/MedTetris/) to play instantly in your browser!
 
 ### Run Locally
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/medical-tetris.git
+git clone https://github.com/kevinmsong/MedTetris.git
 
 # Navigate to the directory
-cd medical-tetris
+cd MedTetris
 
 # Open in browser (no build required!)
 # Option 1: Double-click index.html
@@ -220,11 +220,11 @@ Potential features for future versions:
 3. Select "Deploy from branch"
 4. Choose `main` branch and `/ (root)` folder
 5. Click Save
-6. Your game will be live at `https://yourusername.github.io/medical-tetris/`
+6. Your game will be live at `https://kevinmsong.github.io/MedTetris/`
 
 ### Netlify
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yourusername/medical-tetris)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/kevinmsong/MedTetris)
 
 1. Click the button above or drag & drop the folder to Netlify
 2. Your site will be live instantly!
@@ -287,10 +287,10 @@ See [LICENSE](LICENSE) file for details.
 
 ## 📧 Contact
 
-Created by [@yourusername](https://github.com/yourusername)
+Created by [@kevinmsong](https://github.com/kevinmsong)
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Project Link: [https://github.com/yourusername/medical-tetris](https://github.com/yourusername/medical-tetris)
+- GitHub: [@kevinmsong](https://github.com/kevinmsong)
+- Project Link: [https://github.com/kevinmsong/MedTetris](https://github.com/kevinmsong/MedTetris)
 
 ---
 
