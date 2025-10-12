@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 Medical Tetris - Clinical Edition</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@300;400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1><span class="medical-icon">🏥</span> MEDICAL TETRIS <span class="medical-icon">🏥</span></h1>
+            <p class="tagline">Emergency Supply Organization System</p>
+        </header>
+
+        <!-- Main Game Area -->
+        <div class="game-container">
+            <!-- Left Panel: Patient Chart (Stats) -->
+            <aside class="left-panel">
+                <div class="panel-card">
+                    <h2><span class="icon">📋</span> PATIENT CHART</h2>
+                    <div class="stats">
+                        <div class="stat-row">
+                            <span class="stat-label">Treatment Points:</span>
+                            <span class="stat-value" id="score">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Emergency Level:</span>
+                            <span class="stat-value" id="level">1</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">Cases Resolved:</span>
+                            <span class="stat-value" id="lines">0</span>
+                        </div>
+                        <div class="stat-row highlight">
+                            <span class="stat-label">High Score:</span>
+                            <span class="stat-value" id="highScore">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <h2><span class="icon">⌨️</span> CONTROLS</h2>
+                    <div class="controls-info">
+                        <div class="control-item">
+                            <span class="key">←→</span> Move
+                        </div>
+                        <div class="control-item">
+                            <span class="key">↓</span> Soft Drop
+                        </div>
+                        <div class="control-item">
+                            <span class="key">↑</span> Rotate
+                        </div>
+                        <div class="control-item">
+                            <span class="key">SPACE</span> Hard Drop
+                        </div>
+                        <div class="control-item">
+                            <span class="key">P</span> Pause
+                        </div>
+                        <div class="control-item">
+                            <span class="key">R</span> Restart
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <button id="soundToggle" class="sound-button">
+                        <span id="soundIcon">🔊</span> Sound: <span id="soundStatus">ON</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Center: Game Board -->
+            <main class="game-board-container">
+                <div class="canvas-wrapper">
+                    <canvas id="gameCanvas" width="300" height="600"></canvas>
+                    
+                    <!-- Game Over Overlay -->
+                    <div id="gameOverOverlay" class="overlay hidden">
+                        <div class="overlay-content">
+                            <h2 class="emergency">⚠️ CODE BLUE! ⚠️</h2>
+                            <p class="game-over-message">Medical Emergency!</p>
+                            <div class="final-stats">
+                                <p>Final Score: <span id="finalScore">0</span></p>
+                                <p>Level Reached: <span id="finalLevel">1</span></p>
+                                <p>Cases Resolved: <span id="finalLines">0</span></p>
+                            </div>
+                            <button id="restartButton" class="btn-primary">
+                                🔄 Resume Operations
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Pause Overlay -->
+                    <div id="pauseOverlay" class="overlay hidden">
+                        <div class="overlay-content">
+                            <h2>☕ BREAK ROOM</h2>
+                            <p>Game Paused</p>
+                            <p class="hint">Press P or ESC to resume</p>
+                        </div>
+                    </div>
+
+                    <!-- Start Screen -->
+                    <div id="startOverlay" class="overlay">
+                        <div class="overlay-content">
+                            <h2>🏥 WELCOME TO MEDICAL TETRIS</h2>
+                            <p class="welcome-text">Organize medical supplies to keep the hospital running!</p>
+                            <div class="instructions">
+                                <h3>Mission Objectives:</h3>
+                                <ul>
+                                    <li>Arrange falling medical equipment</li>
+                                    <li>Complete horizontal lines to clear cases</li>
+                                    <li>Don't let supplies reach the top!</li>
+                                </ul>
+                            </div>
+                            <button id="startButton" class="btn-primary btn-large">
+                                🚑 START EMERGENCY OPERATIONS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ECG Monitor (Speed Indicator) -->
+                <div class="ecg-monitor">
+                    <span class="ecg-label">Speed Monitor:</span>
+                    <div class="ecg-line" id="ecgLine">
+                        <span class="heartbeat-pulse">❤️</span>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Panel: Next Piece & Vitals -->
+            <aside class="right-panel">
+                <div class="panel-card">
+                    <h2><span class="icon">💊</span> NEXT TREATMENT</h2>
+                    <div class="next-piece-container">
+                        <canvas id="nextPieceCanvas" width="120" height="120"></canvas>
+                    </div>
+                    <p class="prescription-note">Incoming Supply</p>
+                </div>
+
+                <div class="panel-card">
+                    <h2><span class="icon">💉</span> STORAGE VITALS</h2>
+                    <div class="vitals">
+                        <div class="vital-row">
+                            <span class="vital-label">Capacity:</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="capacityBar"></div>
+                            </div>
+                            <span class="vital-value" id="capacityPercent">0%</span>
+                        </div>
+                        <div class="vital-row">
+                            <span class="vital-label">Status:</span>
+                            <span class="status-badge" id="statusBadge">READY</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <h2><span class="icon">🏆</span> ACHIEVEMENTS</h2>
+                    <div class="achievements">
+                        <div class="achievement" id="achievement1">
+                            <span class="achievement-icon">🩺</span>
+                            <span class="achievement-text">First Responder</span>
+                        </div>
+                        <div class="achievement" id="achievement2">
+                            <span class="achievement-icon">⚕️</span>
+                            <span class="achievement-text">Resident</span>
+                        </div>
+                        <div class="achievement" id="achievement3">
+                            <span class="achievement-icon">👨‍⚕️</span>
+                            <span class="achievement-text">Attending</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="game-footer">
+            <p>Medical Tetris v1.0 - Clinical Edition | <span class="pulse">●</span> System Online</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/tetromino.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>

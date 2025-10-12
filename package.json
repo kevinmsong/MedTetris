@@ -1,0 +1,36 @@
+{
+  "name": "medical-tetris",
+  "version": "1.0.0",
+  "description": "A medical-themed Tetris game with hospital aesthetics and clinical terminology",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000 -o",
+    "deploy:netlify": "netlify deploy --prod",
+    "deploy:vercel": "vercel --prod",
+    "deploy:surge": "surge . medical-tetris.surge.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/medical-tetris.git"
+  },
+  "keywords": [
+    "tetris",
+    "game",
+    "medical",
+    "healthcare",
+    "html5",
+    "javascript",
+    "canvas",
+    "puzzle",
+    "retro"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/medical-tetris/issues"
+  },
+  "homepage": "https://github.com/yourusername/medical-tetris#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
